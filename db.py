@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # ✅ Database URL — change password/db name if needed
-DATABASE_URL = "postgresql+asyncpg://postgres:password@localhost:5432/Healthcare"
+DATABASE_URL = "postgresql+asyncpg://postgres:umairmemon38#@localhost:5432/Healthcare"
 
 # ✅ Create async engine
 engine = create_async_engine(DATABASE_URL, echo=True)
