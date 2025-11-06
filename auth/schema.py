@@ -33,7 +33,14 @@ class UserLogin(BaseModel):
         orm_mode = True
 
 class DoctorCreate(BaseModel):
-    user_id: int
+    national_id: str
+    name: str
+    dob: date
+    gender: str         
+    email: EmailStr
+    phone: str
+    address: str
+    password: str
     qualification: str
     specialization: str
     designation: str

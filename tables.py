@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from db import Base, engine
 import asyncio
 import enum
-
+from sqlalchemy.sql import func
 
 # -------- ENUM CLASSES --------
 class GenderEnum(enum.Enum):
@@ -18,8 +18,6 @@ class RoleEnum(enum.Enum):
     admin = "admin"
     assistant = "assistant"
     doctor_admin = "doctor_admin"
-
-
 # -------- USERS TABLE --------
 class User(Base):
     __tablename__ = "users"
@@ -34,7 +32,7 @@ class User(Base):
     address = Column(String(255))
     password_hash = Column(String(255), nullable=False)
     role = Column(Enum(RoleEnum), nullable=False)
-    created_at = Column(TIMESTAMP)
+    created_at = Column(TIMESTAMP, server_default=func.now())
 
     doctor = relationship("Doctor", back_populates="user", uselist=False)
 
