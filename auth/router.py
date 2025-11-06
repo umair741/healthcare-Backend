@@ -113,6 +113,6 @@ async def dashboard(id: int, db: AsyncSession = Depends(get_db)):
         raise HTTPException(status_code=404, detail="User not found")
 
     return {
-        "name": db_user.name,
+        "name": db_user.name ,
         "role": db_user.role
     }
