@@ -2,7 +2,7 @@ from sqlalchemy import Column, String,TIMESTAMP,ForeignKey,Integer,Enum
 from db import Base
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
-import uuid
+
 import enum
 
 class VerificationEnum(enum.Enum):
@@ -23,5 +23,3 @@ class doctor(Base):
     verification_status = Column(Enum(VerificationEnum),nullable=False)
     created_at = Column(TIMESTAMP(timezone=True),server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True),server_default=func.now())
-
-
